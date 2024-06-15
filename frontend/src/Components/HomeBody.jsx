@@ -1,10 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "./navbar";
 import Slideshow from "./Slideshow.jsx";
+import { useState } from "react";
+import Login from "./Login.jsx";
 export const HomeBody = () => {
+  // const [isContactUs, setIsContactUs] = useState(false);
+  const [renderLogin, setRenderLogin] = useState(false);
   const navigate = useNavigate();
   const Demo = () => {
     navigate("/demo");
+  };
+  const LoginHandler = () => {
+    setRenderLogin(true);
   };
   const navlist = [
     { innertext: "Home", onClick: "" },
@@ -17,19 +24,14 @@ export const HomeBody = () => {
       onClick: "",
     },
     {
-      innertext: "Signup",
-      onClick: "",
-    },
-    {
       innertext: "Login",
-      onClick: "",
+      onClick: LoginHandler,
     },
   ];
   return (
     <div
       style={{
         width: "100%",
-        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -39,20 +41,17 @@ export const HomeBody = () => {
       <div
         style={{
           width: "100%",
-          height: "100%",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <img
-          src={"/SocialKit/zwigato.jpeg"}
-          alt="logo"
-          style={{ width: "auto", height: "10dvh" }}
-        />
+        <img src={"/SocialKit/zwigato.jpeg"} alt="logo" className="logo" />
         <Navbar list={navlist} />
       </div>
-      <Slideshow />
+      {!renderLogin && <Slideshow />}
+      {/* {isContactUs && <ContactUs/>} */}
+      {renderLogin && <Login />}
     </div>
   );
 };

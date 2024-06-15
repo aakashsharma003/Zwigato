@@ -6,10 +6,7 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  height: 5em;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -39,4 +36,15 @@
 
 .read-the-docs {
   color: #888;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 4em;
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    height: 3em;
+  }
 }

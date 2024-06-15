@@ -7,27 +7,16 @@ import "swiper/css/navigation";
 
 import "./style.css";
 
-// import required modules
-import { Navigation } from "swiper/modules";
-import { useEffect, useState } from "react";
+import { Navigation, Autoplay } from "swiper/modules";
 
 export default function Slideshow() {
-  //   const [mySwiper, setMySwiper] = useState({});
-  //   const [click, setclick] = useState(true);
-
-  //   const slide = () => {
-  //     setInterval(mySwiper.slideNext(), 2000);
-  //   };
-
   return (
     <div style={{ width: "100%", margin: "2% 2% 0 2%" }}>
       <Swiper
-        // onInit={(e) => {
-        //   setMySwiper(e);
-        //   slide();
-        // }}
         navigation={true}
-        modules={[Navigation]}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        loop={true}
+        modules={[Navigation, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide>
